@@ -1,0 +1,12 @@
+Servlets\AddSupplierServlet.class
+SessionUtil\SessionUtil.class
+Servlets\AddProductServlet.class
+AlekseevProject\DAO.class
+AlekseevProject\DAOSupplierImpl.class
+AlekseevProject\DAOProductImpl.class
+pojos\Product.class
+pojos\Product$ProductBuilder.class
+AlekseevProject\DAOSupplier.class
+AlekseevProject\DAOProduct.class
+pojos\Supplier.class
+pojos\Supplier$SupplierBuilder.class
