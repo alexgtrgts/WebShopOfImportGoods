@@ -38,7 +38,7 @@ public class AddProductServlet extends HttpServlet {
         pw.println("You have successfully added a product!");
         resp.setContentType("text/html");
         pw.println("<html><body>");
-        pw.println("<a href=\"index.jsp\">Go back</a>");
+        pw.println("<a href=\"listAll\">Go back</a>");
         pw.println("</body></html>");
     }
 }

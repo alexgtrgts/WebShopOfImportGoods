@@ -8,6 +8,7 @@ import pojos.Supplier;
 
 import java.io.Serializable;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Set;
 
 public class DAOSupplierImpl implements DAOSupplier {
@@ -24,7 +25,7 @@ public class DAOSupplierImpl implements DAOSupplier {
     }
 
     @Override
-    public Supplier read(Supplier supplier, Serializable id) throws SQLException, ClassNotFoundException {
+    public Supplier read(Serializable id) throws SQLException, ClassNotFoundException {
         Supplier supl = null;
         SessionUtil su = new SessionUtil();
         Session session = su.getSession();
@@ -33,6 +34,16 @@ public class DAOSupplierImpl implements DAOSupplier {
         supl = (Supplier) session.get(Supplier.class,id);
         transaction.commit();
         return supl;
+    }
+
+    public List<Supplier> getAllSuppliers() throws SQLException,ClassNotFoundException {
+        SessionUtil su = new SessionUtil();
+        Session session = su.getSession();
+        Transaction transaction = session.beginTransaction();
+        String query = "select p from Supplier p";
+        List <Supplier> supplierList = (List) session.createQuery(query).list();
+        session.getTransaction().commit();
+        return supplierList;
     }
 
     @Override

@@ -31,7 +31,7 @@ public class Product implements Serializable {
     @Column
     private double price;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "Supplier_id")
     private Supplier supplier;
 
@@ -44,6 +44,15 @@ public class Product implements Serializable {
 
     public Product(String name, String type, String description, String price) {
     }
+
+    public Product(String name) {
+        this.name = name;
+    }
+
+    public Product(double price) {
+        this.price = price;
+    }
+
 
     @Override
     public boolean equals(Object o) {

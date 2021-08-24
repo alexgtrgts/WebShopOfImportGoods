@@ -24,7 +24,7 @@ public class DAOProductImpl implements DAO<Product>{
     }
 
     @Override
-    public Product read(Product product, Serializable id) throws SQLException, ClassNotFoundException {
+    public Product read(Serializable id) throws SQLException, ClassNotFoundException {
         Product prod = null;
         SessionUtil su = new SessionUtil();
         Session session = su.getSession();
@@ -61,9 +61,10 @@ public class DAOProductImpl implements DAO<Product>{
         SessionUtil su = new SessionUtil();
         Session session = su.getSession();
         Transaction transaction = session.getTransaction();
-        transaction.begin();
         Product product = (Product) session.get(Product.class,id);
+        transaction.begin();
         session.delete(product);
         transaction.commit();
+        session.close();
     }
 }

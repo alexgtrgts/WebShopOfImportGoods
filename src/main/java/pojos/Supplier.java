@@ -29,7 +29,7 @@ public class Supplier implements Serializable {
     @Column
     private String brandName;
 
-    @OneToMany(mappedBy = "supplier", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "supplier", cascade = CascadeType.MERGE)
     private List<Product> product;
 
     public Supplier(String name, String address, String brandName) {

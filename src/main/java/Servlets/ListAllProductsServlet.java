@@ -30,7 +30,7 @@ public class ListAllProductsServlet extends HttpServlet {
         try {
             List<Product> product = dpi.getAllProducts();
             ServletContext context = getServletContext();
-            RequestDispatcher rd = context.getRequestDispatcher("/ListAll.jsp");
+            RequestDispatcher rd = context.getRequestDispatcher("/ListAllProducts.jsp");
             req.setAttribute("product",product);
             rd.forward(req,resp);
         } catch (SQLException throwables) {
